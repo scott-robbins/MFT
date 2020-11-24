@@ -32,7 +32,7 @@ class Client():
 	def load_keys(self):
 		if os.path.isdir(os.getcwd()+'/.data'):
 			if os.path.isfile(os.getcwd()+'/.data/myid'):
-				key = RSA.importKey(open(os.getcwd()+'/.data/myid.pem','rb').read())
+				key = RSA.importKey(open(os.getcwd()+'/.data/myid','rb').read())
 				self.private_key = key
 				return self.public_key
 			
