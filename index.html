@@ -16,7 +16,7 @@ img.resize{
 .card{
 	padding: 10px;
 	background: #C0C0C0;
-	text-align:	left;
+	text-align:	right;
 	width: 20%;
 }
 
@@ -24,13 +24,18 @@ img.resize{
 	padding: 10px;
 	text-align: center;
 	background: #C0C0C0;
+
 	font-family: "Monoton";
 }
 
 </style>
 
 <body>
-
+<script type="application/javascript">
+  function getIP(json) {
+    document.write("My public IP address is: ", json.ip);
+  }
+</script>
 <div class="card">
 	<p> Oh this is kinda cool. I didnt realize you could like host a full on website with GitHub!? </p>
 </div>
