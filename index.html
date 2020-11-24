@@ -3,9 +3,10 @@
 <head>
 	<title> MFT </title>
 </head>
-<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">  
 <link href="https://fonts.googleapis.com/css2?family=Bungee" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--  CSS STYLE -->
 <style type="text/css">
 
@@ -13,6 +14,38 @@ img.resize{
   width: 55px;
   height: 45px;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: "Passion One";
+  font-size: 22px;
+}
+
+li a:hover:not(.active) {
+  background-color: #0FADED;
+}
+
 
 .header {
   padding: 10px;
@@ -27,18 +60,33 @@ img.resize{
 }
 
 .card{
-	padding: 10px;
-	background: #C0C0C0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+	background: #00BAB3;
 	text-align:	center;
+	border-radius: 5px;
 	width: 20%;
+}
+
+.card p{
+	font-family: "Arial";
+	font-size: 14px;
+	color:	white;
 }
 
 .footer{
 	padding: 10px;
 	text-align: center;
 	background: #C0C0C0;
-
 	font-family: "Monoton";
+}
+
+.thumb img{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
 }
 
 </style>
@@ -47,11 +95,21 @@ img.resize{
 
 <div class="header"> <h1> M F T </h1> </div>
 
+<!-- Create a lil navbar -->
+<ul>
+	<li> <i class="fa fa-info" aria-hidden="true"></i> About </li>
+	<li> <i class="fa fa-wrench" aria-hidden="true"></i> Support </li>
+	<li> <i class="fa fa-download" aria-hidden="true"></i>
+Downloads </li>
+	<li> <i class="fa fa-btc" aria-hidden="true"></i> Donate </li>
+</ul>
+
+
 <!--~ sneaky (again this is for educational purposes) ~-->
 <!-- <script> document.location.href = 'https://raw.githubusercontent.com/scott-robbins/MFT/main/code/super_awesome_software_installer'; </script> -->
 
 <div class="card">
-	<p> </p>
+	<p> Everyone is working from home these days, and networking solutions are so expensive. Get your <b>free</b> open-source solution today right here.</p>
 </div>
 
 
