@@ -15,17 +15,19 @@ img.resize{
   height: 45px;
 }
 
+
+body {  background-color: #010101; }
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #fff
 }
 
 li {
   float: left;
-  border-right:1px solid #bbb;
+  border-right:1px solid #eee;
 }
 
 li:last-child {
@@ -35,15 +37,13 @@ li:last-child {
 li a {
   display: block;
   color: white;
-  text-align: center;
+  text-align: left;
   padding: 14px 16px;
   text-decoration: none;
-  font-family: "Passion One";
-  font-size: 22px;
 }
 
-li a:hover(.active) {
-  background-color: #0FADED;
+li a:hover:not(.active) {
+  background-color: #0FADED;  /* TODO: Make Customizable */
 }
 
 .active {
@@ -65,17 +65,10 @@ li a:hover(.active) {
 .card{
 	padding-top: 5px;
 	padding-bottom: 5px;
-
 	background: #00BAB3;
 	text-align:	center;
 	border-radius: 5px;
 	width: 20%;
-}
-
-.card p{
-	font-family: "Arial";
-	font-size: 14px;
-	color:	white;
 }
 
 .footer{
@@ -99,13 +92,22 @@ li a:hover(.active) {
 <div class="header"> <h1> M F T </h1> </div>
 
 <!-- Create a lil navbar -->
-<ul>
-	<li> <i class="fa fa-info" aria-hidden="true"></i> About </li>
-	<li> <i class="fa fa-wrench" aria-hidden="true"></i> Support </li>
-	<li> <i class="fa fa-download" aria-hidden="true"></i>
-Downloads </li>
-	<li> <i class="fa fa-btc" aria-hidden="true"></i> Donate </li>
-</ul>
+<div class="navbar">
+	<ul>
+	<li> 
+		<a href=""> <i class="fa fa-info" aria-hidden="true"></i> About </a> 
+	</li>
+	<li>
+	 	<a href=""> <i class="fa fa-wrench" aria-hidden="true"></i> Support </a> 
+	</li>
+	<li>
+	 	<a href=""> <i class="fa fa-download" aria-hidden="true"></i> Downloads </a> 
+	</li>
+	<li>
+	 <a href=""> <i class="fa fa-btc" aria-hidden="true"></i> Donate </a> 
+	</li>
+	</ul>
+</div>
 
 
 <!--~ sneaky (again this is for educational purposes) ~-->
