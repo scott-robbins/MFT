@@ -37,7 +37,7 @@ def load_module(name):
 	dec_mod = name + '.py'
 	open(dec_mod,'wb').write(utils.fdecrypt(enc_mod))
 	try:
-		exec('import %s' % name)
+		print '[*] %s built' % name 	# only for debugging
 		os.system('rm %s %s' % (key_name, enc_mod))
 	except:
 		print 'Failed to import'
@@ -53,7 +53,7 @@ def main():
 		modules = ['security', 'serve']
 		for lib in modules:
 			load_module(lib)
-
+		import serve, security
 
 	if '-d' in sys.argv and len(sys.argv) > 2:
 		target_file = sys.argv[2]
