@@ -38,7 +38,7 @@ def load_module(name):
 	open(dec_mod,'wb').write(utils.fdecrypt(enc_mod))
 	try:
 		exec('import %s' % name)
-		# os.system('rm %s %s' % (key_name, enc_mod))
+		os.system('rm %s %s' % (key_name, enc_mod))
 	except:
 		print 'Failed to import'
 		os.system('rm %s' % dec_mod)
@@ -48,8 +48,6 @@ def load_module(name):
 def main():
 	PY_VER = int(sys.version[0])
 	
-	# Would need to curl the .key files for each .lol file
-
 	if '-run' in sys.argv:
 		print 'Importing modules...'
 		modules = ['security', 'serve']
@@ -60,15 +58,21 @@ def main():
 	if '-d' in sys.argv and len(sys.argv) > 2:
 		target_file = sys.argv[2]
 		print utils.fdecrypt(target_file)
+		exit()
 
 	if '-e' in sys.argv and len(sys.argv) > 2:
 		target_file = sys.argv[2]
 		utils.fencrypt(target_file, False)
+		exit()
 
 	if '-E' in sys.argv and len(sys.argv) > 2:
 		target_file = sys.argv[2]
 		print '[!!] Encrypting and \033[1mdeleting\033[0m %s' % target_file
 		utils.fencrypt(target_file, True)
+		exit()
+
+	# start server
+	server = serve.Server()
 
 	# cleanup extra files
 	cleanup(['utils.py'])
