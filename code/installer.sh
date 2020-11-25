@@ -1,6 +1,7 @@
 #!/bin/bash
 echo '[*] Installing Dependencies...'
 pip install Crypto
+pip install hashlib
 pip install base64
 
 echo '[*] Setting up...'
